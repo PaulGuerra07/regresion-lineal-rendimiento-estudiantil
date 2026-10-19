@@ -1,11 +1,21 @@
-##Librerias##
 library(ggplot2)
 library(dplyr)
 library(ggpubr)
 
 ##Importacion de los datos##
-data <- read.csv("estudiantes-portugues.csv", header = T, sep = ",",
-                 fileEncoding = "UTF-8-BOM")
+data <- read.csv("student-por.csv", header = T, sep = ",")
+
+##Cambio de nombres de las columnas##
+colnames(data) <- c("escuela", "sexo", "edad", "zona_residencia", "tamano_familia",
+                    "estado_padres", "educacion_madre", "educacion_padre",
+                    "trabajo_madre", "trabajo_padre", "motivo_eleccion", "tutor",
+                    "tiempo_viaje", "tiempo_estudio", "materias_reprobadas",
+                    "apoyo_escolar", "apoyo_familiar", "clases_pagadas",
+                    "actividades_extra", "preescolar", "desea_educ_superior",
+                    "internet", "relacion_romantica", "relacion_familiar",
+                    "tiempo_libre", "salidas_amigos", "alcohol_entre_semana",
+                    "alcohol_fin_semana", "salud", "ausencias",
+                    "nota_1", "nota_2", "nota_final")
 
 ##Exploracion de los datos##
 glimpse(data)

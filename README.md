@@ -11,12 +11,12 @@ Unidad 1, Tema 1 de Modelamiento: introducción al modelado en ciencia de datos.
 
 ## Datos
 
-[Student Performance](https://archive.ics.uci.edu/dataset/320/student+performance), del UCI Machine Learning Repository: 649 estudiantes de secundaria de dos colegios de Portugal, asignatura de Portugués, 33 variables y sin datos faltantes. Las notas van de 0 a 20. Los nombres de las columnas se tradujeron al español en `estudiantes-portugues.csv`.
+[Student Performance](https://archive.ics.uci.edu/dataset/320/student+performance), del UCI Machine Learning Repository: 649 estudiantes de secundaria de dos colegios de Portugal, asignatura de Portugués, 33 variables y sin datos faltantes. Las notas van de 0 a 20. Se usa el archivo original `student-por.csv`; dentro del script, `colnames()` asigna nombres en español a las 33 columnas (por ejemplo, `G2` → `nota_2` y `G3` → `nota_final`).
 
 | Rol | Variable | Descripción |
 |---|---|---|
-| Independiente (X) | `nota_2` | Nota del segundo periodo |
-| Dependiente (Y) | `nota_final` | Nota final del año |
+| Independiente (X) | `nota_2` (original `G2`) | Nota del segundo periodo |
+| Dependiente (Y) | `nota_final` (original `G3`) | Nota final del año |
 
 ## Desarrollo
 
@@ -25,7 +25,8 @@ El script `Guerra_Paul_modelamiento_A.R` sigue el flujo trabajado en clase:
 | Paso | Funciones | Qué hace |
 |---|---|---|
 | Librerías | `ggplot2`, `dplyr`, `ggpubr` | Gráficos y exploración de datos |
-| Importación | `read.csv()` | Lee el CSV; `fileEncoding = "UTF-8-BOM"` conserva tildes y ñ |
+| Importación | `read.csv()` | Lee el CSV original |
+| Nombres de columnas | `colnames()` | Asigna nombres en español a las 33 columnas |
 | Exploración | `glimpse()`, `summary()`, `sum(is.na())` | Estructura, resumen estadístico y datos faltantes |
 | Gráficos exploratorios | `plot()`, `boxplot()`, `barplot(table())` | Relación entre variables y valores atípicos |
 | Correlación de Pearson | `cor()` | Fuerza y dirección de la relación lineal |
@@ -96,7 +97,7 @@ El CSV está en la misma carpeta que el script, así que no hay que cambiar ning
 
 ```
 ├── Guerra_Paul_modelamiento_A.R                  # Script del análisis
-├── estudiantes-portugues.csv                     # Datos traducidos al español
+├── student-por.csv                               # Datos originales (UCI)
 ├── regresion-lineal-rendimiento-estudiantil.Rproj
 ├── figuras/                                      # Gráficos generados en RStudio
 └── README.md
